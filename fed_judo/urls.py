@@ -3,6 +3,7 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
+	url(r'^$', views.index, name='index.html'),
     url(r'^index$', views.index, name='index.html'),
     url(r'^sobre$', views.sobre, name='sobre.html'),
     url(r'^cadastro_usuario$', views.cadastro_usuario, name='cadastro_usuario.html'),

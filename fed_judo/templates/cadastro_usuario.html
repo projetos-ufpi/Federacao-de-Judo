@@ -1,5 +1,7 @@
 
 <!DOCTYPE html>
+{% load staticfiles %}
+
 <html>
   <head>
     <meta charset="utf-8">
@@ -40,16 +42,17 @@
 
       <div class="container">
         <h2>Cadastro de Usuários</h2>
-        <form class="form-horizontal" action="#">
+        {% if codigo == 0 %}
+        <form class="form-horizontal" action="#" method="POST">{% csrf_token %}>
           <div class="form-group">
-            <label class="control-label col-sm-2" for="email">Nome:</label>
+            <label class="control-label col-sm-2" for="nome">Nome:</label>
             <div class="col-sm-7">
-              <input type="email" class="form-control" id="email" placeholder="Insira seu nome" name="email">
+              <input type="text" class="form-control" id="nome" placeholder="Insira seu nome" name="nome">
             </div>
           </div>
 
           <div class="form-group">
-            <label class="control-label col-sm-2" for="email">Endereço:</label>
+            <label class="control-label col-sm-2" for="Endereco">Endereço:</label>
             <div class="col-sm-7">
               <input type="text" class="form-control" id="endereco" placeholder="Insira seu endereço" name="endereco">
             </div>
@@ -64,21 +67,18 @@
           </div>
 
           <div class="form-group">
-            <label class="control-label col-sm-2" for="email">Telefone:</label>
+            <label class="control-label col-sm-2" for="number">Telefone:</label>
             <div class="col-sm-7">
-              <input type="text" class="form-control" id="telefone" placeholder="Insira seu telefone" name="telefone">
+              <input type="numbet" class="form-control" id="telefone" placeholder="Insira seu telefone" name="telefone">
             </div>
           </div>
 
           <div class="form-group">
-            <label class="control-label col-sm-2" for="email">CPF:</label>
+            <label class="control-label col-sm-2" for="cpf">CPF:</label>
             <div class="col-sm-7">
               <input type="text" class="form-control" id="cpf" placeholder="Insira seu CPF" name="cpf">
             </div>
           </div>
-
-
-
 
 
           <div class="form-group">
@@ -117,6 +117,86 @@
             </div>
           </div>
         </form>
+        {% elif codigo == 1 %}
+          Efetuado com sucesso
+        {% else %}
+          <form class="form-horizontal" action="#" method="POST">{% csrf_token %}>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="nome">Nome:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="nome" placeholder="Insira seu nome" name="nome" value="{{ nome }}">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="Endereco">Endereço:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="endereco" placeholder="Insira seu endereço" name="endereco"
+              value="{{ endereco }}">
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="pwd">Data de Nascimento:</label>
+            <div class="col-sm-7">
+              <input type="datetime" class="form-control" placeholder="Insira sua Data de Nascimento" id="data_nascimento" name="data_nascimento" value="{{ data_nascimento }}">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="number">Telefone:</label>
+            <div class="col-sm-7">
+              <input type="numbet" class="form-control" id="telefone" placeholder="Insira seu telefone" name="telefone"
+              value="{{ telefone }}">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="cpf">CPF:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="cpf" placeholder="Insira seu CPF" name="cpf" value="{{ cpf }}">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="email">login:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="login" placeholder="Insira seu LOGIN" name="login" value="{{ username }}">
+            </div>
+          </div>
+
+          senhas diferentes!
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Senha:</label>
+            <div class="col-sm-7">
+              <input type="password" class="form-control" id="senha" placeholder="Insira sua senha" name="senha">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="email">Confirme sua Senha:</label>
+            <div class="col-sm-7">
+              <input type="password" class="form-control" id="confirmacao_senha" placeholder="Confirme sua senha" name="confirmacao_senha">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label><input type="checkbox" name="remember"> Remember me</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-default">Enviar</button>
+            </div>
+          </div>
+        </form>
+        {% endif %}
+        {{ codigo }}
       </div>
 
 

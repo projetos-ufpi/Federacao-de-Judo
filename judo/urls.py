@@ -19,6 +19,6 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    url(r'^judo/', include ('fed_judo.urls')),
+    url(r'^', include ('fed_judo.urls')),
     url(r'^admin/', admin.site.urls),
 ]
