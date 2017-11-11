@@ -38,7 +38,7 @@ def cadastro_usuario(request):
 		usuario.setPassword(request.POST.get('senha'))
 		usuario.save()
 		codigo = 1
-		return render(request,'cadastro_usuario',{'codigo':codigo})
+		return render(request,'cadastro_usuario.html',{'codigo':codigo})
 	elif(request.method == 'POST' and request.POST.get('senha') != request.POST.get('confirmacao_senha')):
 		usuario.setNome(request.POST.get('nome'))
 		usuario.setEndereco(request.POST.get('endereco'))

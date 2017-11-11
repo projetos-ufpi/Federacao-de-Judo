@@ -6,7 +6,7 @@ from django.db import models
 class Usuario(models.Model):
     cpf = models.IntegerField(max_length=15,unique=True,null=True)
     nome = models.TextField()
-    idade = models.IntegerField()
+    idade = models.IntegerField(null=True)
     telefone = models.TextField()
     endereco = models.TextField()
     data_nascimento = models.DateTimeField(blank=True,null=True)
