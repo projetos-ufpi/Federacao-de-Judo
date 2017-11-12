@@ -4,7 +4,7 @@ from django.db import models
 
 # Create your models here.
 class Usuario(models.Model):
-    cpf = models.IntegerField(max_length=15,unique=True,null=True)
+    cpf = models.IntegerField(unique=True,null=True)
     nome = models.TextField()
     idade = models.IntegerField(null=True)
     telefone = models.TextField()
@@ -61,3 +61,29 @@ class Administrador(models.Model):
 class Juiz(models.Model):
     posicao = models.TextField()
     funcao = models.TextField()
+
+class Evento(models.Model):
+    nome_evento = models.TextField()
+    data_inicio = models.DateTimeField(blank=True,null=True)
+    data_fim = models.DateTimeField(blank=True,null=True)
+    premiacao = models.TextField()
+
+    def setNome_Evento(self, nome_evento=''):
+        self.nome_evento = nome_evento
+    def getNome_Evento(self):
+        return self.nome_evento
+
+    def setData_Inicio(self, data_inicio=''):
+        self.data_inicio = data_inicio
+    def getData_Inicio(self):
+        return self.data_inicio
+
+    def setData_Fim(self, data_fim=''):
+        self.data_fim = data_fim
+    def getData_Fim(self):
+        return self.data_fim
+
+    def setPremiacao(self, premiacao=''):
+        self.premiacao = premiacao
+    def getPremiacao(self):
+        return self.premiacao
