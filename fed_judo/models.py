@@ -87,3 +87,30 @@ class Evento(models.Model):
         self.premiacao = premiacao
     def getPremiacao(self):
         return self.premiacao
+
+
+class FaleConosco(models.Model):
+    nome = models.TextField()
+    email = models.TextField()
+    mensagem = models.TextField()
+    hora_envio = models.DateTimeField(blank=True,null=True)
+
+    def setNome(self, nome=''):
+        self.nome = nome
+    def getNome(self):
+        return self.nome
+
+    def setEmail(self, email=''):
+        self.email = email
+    def getEmail(self):
+        return self.email
+
+    def setMensagem(self, mensagem=''):
+        self.mensagem = mensagem
+    def getMensagem(self):
+        return self.mensagem
+
+    def setHoraEnvio(self, hora_envio=''):
+        self.hora_envio = hora_envio
+    def getHotaEnvio(self):
+        return self.hora_envio

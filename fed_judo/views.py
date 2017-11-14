@@ -1,11 +1,11 @@
 from django.shortcuts import render
-from .models import Usuario, Evento
+from .models import Usuario, Evento, FaleConosco
 
 from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm
-
+from datetime import datetime
 
 
 
@@ -77,7 +77,22 @@ def cadastro_usuario(request):
 		return render(request,'cadastro_usuario.html',{'nome':usuario.getNome(),'endereco':usuario.getEndereco(),'telefone':usuario.getTelefone(),'data_nascimento':usuario.getDatadeNasciento(),'cpf':usuario.getCpf(),'username':usuario.getUsername(),'codigo':codigo})
 	return render(request,'cadastro_usuario.html',{'codigo':codigo})
 
-    
+
+
+def fale_conosco(request):
+    mensagem = FaleConosco()
+    codigo = 0
+    if (request.method == 'POST'):
+        mensagem.setNome(request.POST.get('nome'))
+        mensagem.setEmail(request.POST.get('email'))
+        mensagem.setMensagem(request.POST.get('mensagem'))
+        mensagem.setHoraEnvio(datetime.now())
+        mensagem.save()
+        codigo = 1
+        return render (request, 'fale_conosco.html', {'codigo':codigo})
+    return render(request, 'fale_conosco.html', {'codigo':codigo})
+
+
 def consulta(request):
 	consulta = ColetaAgendada()
 	codigo = 0
