@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Usuario, Evento, FaleConosco
+from .models import Usuario, Evento, FaleConosco, Academia
 
 from django.http import HttpResponse
 from django.contrib import messages
@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate, login
 from .forms import LoginForm
 from datetime import datetime
 
+from random import randint
 
 
 # Create your views here.
@@ -91,6 +92,21 @@ def fale_conosco(request):
         codigo = 1
         return render (request, 'fale_conosco.html', {'codigo':codigo})
     return render(request, 'fale_conosco.html', {'codigo':codigo})
+
+
+def cadastro_academias(request):#corrigir a atribuição de id para academia/inserir pesquisa para verificar se o valor já está salvo no banco
+    academia = Academia()
+    codigo = 0
+    if (request.method == 'POST'):
+        academia.setNomeAcademia(request.POST.get('nome_Academia'))
+        academia.setEnderecoAcademia(request.POST.get('endereco_academia'))
+        academia.setLimiteAtletasAcademia(request.POST.get('limite_Atletas'))
+        academia.setIdAcademia(randint(0, 9999999))
+        academia.save()
+        codigo = 1
+        return render (request, 'cadastro_academias.html', {'codigo':codigo})
+
+    return render(request, 'cadastro_academias.html', {'codigo': codigo})
 
 
 def consulta(request):

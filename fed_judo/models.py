@@ -2,6 +2,7 @@ from django.db import models
 
 
 
+
 # Create your models here.
 class Usuario(models.Model):
     cpf = models.IntegerField(unique=True,null=True)
@@ -46,7 +47,31 @@ class Usuario(models.Model):
 class Academia(models.Model):
     id_academia = models.IntegerField()
     nome_Academia = models.TextField()
-    enredeco_academia = models.TextField()
+    endereco_academia = models.TextField()
+    limite_atletas = models.IntegerField(null=True)
+
+    def setIdAcademia(self, id_academia=''):
+        self.id_academia = id_academia
+    def getIdAcademia(self):
+        return self.id_academia
+
+    def setNomeAcademia(self, nome_Academia=''):
+        self.nome_Academia = nome_Academia
+    def getNomeAcademia(self):
+        return self.nome_Academia
+
+    def setEnderecoAcademia(self, endereco_academia=''):
+        self.endereco_academia = endereco_academia
+    def getEnderecoAcademia(self):
+        return self.endereco_academia
+
+    def setLimiteAtletasAcademia(self, limite_atletas=''):
+        self.limite_atletas = limite_atletas
+    def getLimiteAtletasAcademia(self):
+        return self.limite_atletas
+
+
+
 
 class Atleta(models.Model):
     academia_Associada = models.ForeignKey(Academia)
