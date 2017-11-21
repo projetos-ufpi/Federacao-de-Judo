@@ -1,13 +1,12 @@
-
-<!DOCTYPE html>
 {% load staticfiles %}
-
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <title>Cadastro de Usuário</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
   </head>
   <body>
 
@@ -20,20 +19,21 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Fed Judô</a>
+            <a class="navbar-brand" href="index">Federação de Judô</a>
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="index">Página Inicial</a></li>
+              <li><a href="index">Página Inicial</a></li>
               <li><a href="eventos">Eventos</a></li>
-              <li><a href="#">Academias</a></li>
               <li><a href="rankings">Rankings</a></li>
+              <li><a href="sobre">Sobre</a></li>
+            <li><a href="fale_conosco">Fale Conosco</a></li>
             </ul>
 
           <ul class="nav navbar-nav navbar-right">
                 <li><a href="cadastro_usuario"><span class="glyphicon glyphicon-user"></span>Cadastre-se</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-          </ul>
+                <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+              </ul>
 
           </div>
         </div>
@@ -50,14 +50,6 @@
               <input type="text" class="form-control" id="nome" placeholder="Insira seu nome" name="nome">
             </div>
           </div>
-
-          <div class="form-group">
-            <label class="control-label col-sm-2" for="Endereco">Endereço:</label>
-            <div class="col-sm-7">
-              <input type="text" class="form-control" id="endereco" placeholder="Insira seu endereço" name="endereco">
-            </div>
-          </div>
-
 
           <div class="form-group">
             <label class="control-label col-sm-2" for="pwd">Data de Nascimento:</label>
@@ -82,7 +74,7 @@
 
 
           <div class="form-group">
-            <label class="control-label col-sm-2" for="email">login:</label>
+            <label class="control-label col-sm-2" for="email">Email:</label>
             <div class="col-sm-7">
               <input type="text" class="form-control" id="login" placeholder="Insira seu LOGIN" name="login">
             </div>
@@ -97,7 +89,7 @@
           </div>
 
           <div class="form-group">
-            <label class="control-label col-sm-2" for="email">Confirme sua Senha:</label>
+            <label class="control-label col-sm-2" for="email">Confirme sua senha:</label>
             <div class="col-sm-7">
               <input type="password" class="form-control" id="confirmacao_senha" placeholder="Confirme sua senha" name="confirmacao_senha">
             </div>
@@ -196,7 +188,7 @@
           </div>
         </form>
         {% endif %}
-        <!--{{ codigo }}-->
+        {{ codigo }}
       </div>
 
 

@@ -1,11 +1,155 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
       <title>Sobre nós</title>
+          <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+          <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+          <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
   </head>
   <body>
-    CORPO
+     <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index">Federação de Judô</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li><a href="index">Página Inicial</a></li>
+              <li><a href="eventos">Eventos</a></li>
+              <li><a href="#">Academias</a></li>
+              <li><a href="rankings">Rankings</a></li>
+              <li class="active"><a href="sobre">Sobre</a></li>
+              <li><a href="fale_conosco">Fale Conosco</a></li>
+            </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+                <li><a href="cadastro_usuario"><span class="glyphicon glyphicon-user"></span>Cadastre-se</a></li>
+                <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+              </ul>
+
+          </div>
+        </div>
+      </nav>
+    
+<div class="container-fluid">
+      <div class="row content">
+        <div class="col-sm-1 sidenav">
+          
+        </div>
+
+        <div class="col-sm-10">
+          <h1>SOBRE</h1>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            
+          </div>
+          <hr>
+          
+          <p> 
+          &emsp;&emsp;As artes marciais no final dos anos 60 começaram a crescer e este crescimento precisava ser coordenado e orientado para atender as novas necessidades dos instrutores e praticantes.<br/>
+
+          &emsp;&emsp;Assim como as outras modalidades, o judô também preocupado com sua expansão rápida sentiu que o momento de organizar-se chegara.<br/>
+
+          &emsp;&emsp;Os clubes fundadores da Federação de Judô foram o Iate Clube da Bahia, AABB (Associação Atlética do Banco do Brasil), Caraíba Judô Clube e Spartan Judô Clube, tendo como primeiro presidente o Sr. Hemetério Chaves Filho.<br/><br/>
+          </p>
+          <p>
+          &emsp;&emsp;<b>Assim foi fundada a Federação de Judô em 16/04/1970</b><br/><br/><br/>
+
+ 
+
+          <h4>Presidentes ao longo da História:</h4><br/>
+
+          &emsp;&emsp;Hemetério Chaves Filho (1970-1973)<br/>
+
+          &emsp;&emsp;Jose Alberto Fonseca Kruschewsky (1979-1982)<br/>
+
+          &emsp;&emsp;Pedro Ivo Bacelar (1982-1985)<br/>
+
+          &emsp;&emsp;Paulo Roberto Fraga Lima (1985-1988)<br/>
+
+          &emsp;&emsp;Alberto Leitão Guerra (1988-1991)<br/>
+
+          &emsp;&emsp;Aloísio da Costa Short Sobrinho (1991-1994)<br/>
+
+          &emsp;&emsp;João Gonzalez Passos (1994-1997)<br/>
+
+          &emsp;&emsp;Marcelo França Moreira (1997-2004)<br/>
+
+          &emsp;&emsp;Paulo Macedo (2005-2008)<br/>
+
+          &emsp;&emsp;Antonio Oliva (2009-2012)<br/>
+
+          &emsp;&emsp;Marcelo Ornelas da Cruz França Moreira (2013-2016).</p><br/>
+          <hr>
+
+          </div>
+          </div>
+          </div>
+          <nav class="navbar navbar-inverse">
+                <footer>
+                  <div  class="collapse navbar-collapse">
+            <div id="rodape" class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+              <br>
+              <!--Contatos-->
+              <div id="contatos" class="col-sm-4 col-md-4 col-xs-12 col-lg-4">
+                <br>
+                <strong class="contato">
+                  Contatos
+                </strong>
+                <hr>
+                <p class="contato">Envie um email para: <a class="contato"> <ins>contato@fju.com.br</ins></a></p>
+                
+                <a id="faler" class="contato" href="fale_conosco"> <ins>Entre em contato conosco pelo site</ins></a>
+                <br><br>
+                
+
+              </div>
+
+              <!--Informações-->
+              <div class="col-sm-4 col-md-4 col-xs-12 col-lg-4">
+
+                <br>
+                <strong class="contato">Informações</strong>
+
+                <hr>
+                <a id="oque" href="sobre" class="contato"> <ins>O que é a Federação de Judô</ins></a>
+                <br><br>
+                <a id="cadsr" href="cadastro_usuario" class="contato"> <ins>Como se cadastrar neste site</ins></a>
+                <br><br>
+                <a id="cadr" href="cadastro_eventos" class="contato"> <ins>Como cadastrar seu evento neste site</ins></a>
+
+              </div>
+
+              <!--Ranking-->
+              <div class="col-sm-4 col-md-4 col-xs-12 col-lg-4">
+              <br>
+                <strong class="contato">
+                  Ranking
+                </strong>
+
+                <hr>
+                <a id="ranka" href="#" class="contato"><ins>Ranking de Academias</ins></a>
+                <br>
+                <br>
+                <a id="rankm" href="#" class="contato"><ins>Ranking Masculino</ins></a>
+                <br>
+                <br>
+                <a id="rankf" href="#" class="contato"><ins>Ranking Feminino</ins></a>
+                <br>
+                <br>
+
+              </div>
+            </div>
+            </div>
+          </footer>
+          </nav>
+
   </body>
 
 </html>
