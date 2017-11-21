@@ -113,6 +113,10 @@ class Evento(models.Model):
     def getPremiacao(self):
         return self.premiacao
 
+    def __str__(self):
+        return self.nome_evento
+
+
 
 class FaleConosco(models.Model):
     nome = models.TextField()

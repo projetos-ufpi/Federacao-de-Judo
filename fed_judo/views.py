@@ -14,6 +14,15 @@ from random import randint
 def index(request):
     return render (request, 'index.html')
 
+
+
+def meu_select(self, sql="SELECT * FROM Usuario"):
+    r = self.db.cursor.execute(sql)
+    # gravando no bd
+    self.db.commit_db()
+    for usuario in r.fetchall():
+        print(usuario)
+
 def sobre(request):
     return render (request, 'sobre.html')
 
@@ -144,3 +153,7 @@ def user_login(request):
     else:
         form = LoginForm()
     return render(request, 'login.html', {'form': form})
+
+
+def interface_usuario(request):
+    return render (request, 'interface_usuario.html')

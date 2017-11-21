@@ -14,4 +14,5 @@ urlpatterns = [
     url(r'^cadastro_eventos$', views.cadastro_eventos, name='cadastro_eventos.html'),
     url(r'^fale_conosco$', views.fale_conosco, name='fale_conosco.html'),
     url(r'^cadastro_academias$', views.cadastro_academias, name='cadastro_academias.html'),
+    url(r'^interface_usuario$', views.interface_usuario, name='interface_usuario.html'),
 ]
