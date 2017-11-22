@@ -7,7 +7,17 @@ from django.contrib.auth import authenticate, login
 from .forms import LoginForm
 from datetime import datetime
 
+from django.http import HttpResponse,HttpResponseRedirect
+from django.contrib import auth
+
 from random import randint
+
+
+def academias(request):
+    #posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    academias = Academia.objects.all()#.order_by('published_date')
+    return render (request, 'academias.html', {'academias':academias})
+
 
 
 # Create your views here.
@@ -16,12 +26,6 @@ def index(request):
 
 
 
-def meu_select(self, sql="SELECT * FROM Usuario"):
-    r = self.db.cursor.execute(sql)
-    # gravando no bd
-    self.db.commit_db()
-    for usuario in r.fetchall():
-        print(usuario)
 
 def sobre(request):
     return render (request, 'sobre.html')
@@ -36,13 +40,32 @@ def sobre(request):
  #  	return render (request, 'cadastro_usuario.html',{})
 
 def eventos(request):
-    return render (request, 'eventos.html')
+    eventos = Evento.objects.all()
+    return render (request, 'eventos.html', {'eventos':eventos})
+    
 
 def rankings(request):
     return render (request, 'rankings.html')
 
+
 def login(request):
-    return render(request, 'login.html')
+    if (request.method == 'POST'):
+        username = request.POST.get('username')#'teste'# aqui e pego o que está no formulario html e salvo na var de ususario
+        password = request.POST.get('senha')#'tomaz123'# aqui e pego o que está no formulario html e salvo na var de senha
+        print(username)#isso é so um print comum
+        user  = auth.authenticate(username=username, password=password)# essa função pronta do djanco para verificae e logar em uma conta
+        if user is not None:
+            auth.login(request, user)#aqui é sogado e construido a request com os dados de
+            return HttpResponseRedirect('/index/')#tela de feeds chamada se der certo logui
+            if request.user.is_authenticaded():
+                return HttpResponseRedirect('/index/')
+        else:
+            #c = {}
+            #c.update(csrf(request))
+            #c.update({'error_message': 'Senha ou Usuario Incorretos'})
+            return render(request, 'interface_usuario.html', {})# ususario e senhas invalidas arruamar a pagina para exibir erro
+    return render (request, 'login.html')
+
 
 def cadastro_eventos(request):
     eventos = Evento()
@@ -109,7 +132,8 @@ def cadastro_academias(request):#corrigir a atribuição de id para academia/ins
     if (request.method == 'POST'):
         academia.setNomeAcademia(request.POST.get('nome_Academia'))
         academia.setEnderecoAcademia(request.POST.get('endereco_academia'))
-        academia.setLimiteAtletasAcademia(request.POST.get('limite_Atletas'))
+        academia.setLimiteAtletasAcademia(request.POST.get('limite-atletas'))
+        academia.setTelefone(request.POST.get('telefone_academia'))
         academia.setIdAcademia(randint(0, 9999999))
         academia.save()
         codigo = 1
