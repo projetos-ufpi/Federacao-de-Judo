@@ -13,13 +13,16 @@ from django.contrib import auth
 from random import randint
 
 
+
+
+
 def academias(request):
     #posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     academias = Academia.objects.all()#.order_by('published_date')
     return render (request, 'academias.html', {'academias':academias})
 
 
-56
+
 # Create your views here.
 def index(request):
     return render (request, 'index.html')
@@ -81,6 +84,22 @@ def cadastro_eventos(request):
         codigo = 1
         return render (request, 'cadastro_eventos.html', {'codigo':codigo})
     return render(request, 'cadastro_eventos.html', {'codigo':codigo})
+
+
+def cadastro_noticias(request):
+    noticia = Noticia()
+    codigo = 0
+    if (request.method == 'POST'):
+        noticia.setTitulo(request.POST.get('titulo_noticia'))
+        noticia.setCorpo(request.POST.get('corpo_noticia'))
+        noticia.setImagem(request.POST.get('imagem_noticia'))
+        noticia.setDataLancamentoNoticia(datetime.now())
+        noticia.save()
+        codigo = 1
+        return render (request, 'cadastro_noticias.html', {'codigo':codigo})
+
+    return render (request,'cadastro_noticias.html', {'codigo':codigo})
+
 
 
 def administracao(request):

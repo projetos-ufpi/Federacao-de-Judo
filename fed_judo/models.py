@@ -1,15 +1,16 @@
 from django.db import models
 
 
-
-
 # Create your models here.
 
 class Noticia(models.Model):
     titulo = models.TextField()
     corpo = models.TextField()
-    #data_lancamento_noticia = models.DataTimeField()
+    data_lancamento_noticia = models.DateTimeField(null=True)
     imagem = models.ImageField(upload_to='noticias')
+
+    def setImagem(self, imagem=''):
+        self.imagem = imagem
 
     def setTitulo(self, titulo=''):
         self.titulo = titulo

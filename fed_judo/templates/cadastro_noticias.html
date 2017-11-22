@@ -1,0 +1,47 @@
+
+{% extends 'base.html' %}
+<!-->>>>>>> af530f7209ef1c257b3041faa02b9bb95f75491b-->
+
+{% block title %}Cadastro de Notícia{% endblock %}
+
+{% block body %}
+
+<div class="container">
+  <h1>Cadastro de Notícia</h1><br><br>
+  {% if codigo == 0 %}
+  <form class="form-horizontal" action="#" method="POST">{% csrf_token %}
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="nome">Título:</label>
+      <div class="col-sm-7">
+        <input type="text" required="required" class="form-control" id="titulo_noticia" placeholder="Insira o título da notícia" name="titulo_noticia">
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Descrição:</label>
+      <div class="col-sm-7">
+        <textarea type="text" required="required" class="form-control" id="corpo_noticia" placeholder="Insira o corpo da notícia." name="corpo_noticia"></textarea>
+        <br>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Insira uma imagem:</label>
+      <div class="col-sm-7">
+        <input type="file" class="form-control" id="imagem_noticia" name="imagem_noticia">
+        <br>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Enviar</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endif %}
+
+
+{% endblock %}
