@@ -129,7 +129,8 @@ def cadastro_academias(request):#corrigir a atribuição de id para academia/ins
     if (request.method == 'POST'):
         academia.setNomeAcademia(request.POST.get('nome_Academia'))
         academia.setEnderecoAcademia(request.POST.get('endereco_academia'))
-        academia.setLimiteAtletasAcademia(request.POST.get('limite_Atletas'))
+        academia.setLimiteAtletasAcademia(request.POST.get('limite-atletas'))
+        academia.setTelefone(request.POST.get('telefone_academia'))
         academia.setIdAcademia(randint(0, 9999999))
         academia.save()
         codigo = 1
@@ -177,3 +178,6 @@ def user_login(request):
 
 def interface_usuario(request):
     return render (request, 'interface_usuario.html')
+
+def academias(request):
+    return render (request, 'academias.html')

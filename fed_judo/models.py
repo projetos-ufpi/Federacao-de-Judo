@@ -44,11 +44,23 @@ class Usuario(models.Model):
     def setPassword(self,password=''):
         self.password = password
 
+    def __str__(self):
+        return self.nome
+
+
 class Academia(models.Model):
     id_academia = models.IntegerField()
     nome_Academia = models.TextField()
     endereco_academia = models.TextField()
     limite_atletas = models.IntegerField(null=True)
+    telefone = models.IntegerField(null=True)
+
+
+    def setTelefone(self, telefone=''):
+        self.telefone = telefone
+    def getTelefone(self):
+        return self.telefone
+
 
     def setIdAcademia(self, id_academia=''):
         self.id_academia = id_academia
@@ -70,6 +82,8 @@ class Academia(models.Model):
     def getLimiteAtletasAcademia(self):
         return self.limite_atletas
 
+    def __str__(self):
+        return self.nome_Academia
 
 
 
@@ -143,3 +157,6 @@ class FaleConosco(models.Model):
         self.hora_envio = hora_envio
     def getHotaEnvio(self):
         return self.hora_envio
+
+    def __str__(self):
+        return self.nome
