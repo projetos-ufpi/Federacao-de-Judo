@@ -1,38 +1,121 @@
+<<<<<<< HEAD
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-3.3.7/css/bootstrap.css' %}">
+
+  </head>
+
+
+
+  <body>
+
+    <nav class="navbar navbar-dark bg-inverse" style="background-color: #000000;">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Fed Judô</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Página Inicial</a></li>
+            <li><a href="eventos">Eventos</a></li>
+            <li><a href="#">Academias</a></li>
+            <li><a href="rankings">Rankings</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+              <li><a href="cadastro_usuario"><span class="glyphicon glyphicon-user"></span>Cadastre-se</a></li>
+              <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+              <li><form class="form-inline pull-xs-right" style="margin-top:8px; ">
+                  <input class="form-control" type="text" placeholder="Pesquise"> <button class="btn btn-default" type="submit"> <span class="glyphicon glyphicon-search"></span></button>
+                  </form>
+              </li>
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+
+=======
 {% extends 'base.html' %}
+>>>>>>> af530f7209ef1c257b3041faa02b9bb95f75491b
 
 {% block title %}Home{% endblock %}
 
 {% block body %}
 
-    <div class="container-fluid">
+    <div class="container well">
       <div class="row content">
-        <div class="col-sm-3 sidenav">
-          <h4>Alguma Coisa</h4>
-          <ul class="nav nav-pills nav-stacked">
-            <!--<li class="active"><a href="#section1">Home</a></li>-->
-            <li><a href="#section2">Notícias</a></li>
-            <li><a href="#section3">Alguma Coisa</a></li>
-            <li><a href="#section3">Alguma Coisa</a></li>
-          </ul><br>
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search Blog..">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button">
-                <span class="glyphicon glyphicon-search"></span>
-              </button>
-            </span>
+
+          <div class="col-sm-8">
+            <h4><small>NOTÍCIAS RECENTES</small></h4>
+            <hr>
+            <h2>I Love Food</h2>
+            <h5><span class="glyphicon glyphicon-time"></span> Post by Jane Dane, Sep 27, 2015.</h5>
+            <h5><span class="label label-danger">Food</span> <span class="label label-primary">Ipsum</span></h5><br>
+            <p>Food is my passion. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <br><br>
+
+<<<<<<< HEAD
+            <h4><small>EVENTOS RECENTES</small></h4>
+            <hr>
+            <h2>Officially Blogging</h2>
+            <h5><span class="glyphicon glyphicon-time"></span> Post by John Doe, Sep 24, 2015.</h5>
+            <h5><span class="label label-success">Lorem</span></h5><br>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <hr>
+          
           </div>
-        </div>
+      </div>
+    </div>
 
-        <div class="col-sm-9">
-          <h4><small>RECENT POSTS</small></h4>
-          <hr>
-          <h2>I Love Food</h2>
-          <h5><span class="glyphicon glyphicon-time"></span> Post by Jane Dane, Sep 27, 2015.</h5>
-          <h5><span class="label label-danger">Food</span> <span class="label label-primary">Ipsum</span></h5><br>
-          <p>Food is my passion. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <br><br>
-
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <h3 class="footertext">About Us:</h3>
+                <br>
+                  <div class="col-md-4">
+                    <center>
+                      <img src="http://oi60.tinypic.com/w8lycl.jpg" class="img-circle" alt="the-brains">
+                      <br>
+                      <h4 class="footertext">Programmer</h4>
+                      <p class="footertext">You can thank all the crazy programming here to this guy.<br>
+                    </center>
+                  </div>
+                  <div class="col-md-4">
+                    <center>
+                      <img src="http://oi60.tinypic.com/2z7enpc.jpg" class="img-circle" alt="...">
+                      <br>
+                      <h4 class="footertext">Artist</h4>
+                      <p class="footertext">All the images here are hand drawn by this man.<br>
+                    </center>
+                  </div>
+                  <div class="col-md-4">
+                    <center>
+                      <img src="http://oi61.tinypic.com/307n6ux.jpg" class="img-circle" alt="...">
+                      <br>
+                      <h4 class="footertext">Designer</h4>
+                      <p class="footertext">This pretty site and the copy it holds are all thanks to this guy.<br>
+                    </center>
+                  </div>
+            </div>
+            <div class="row">
+                <p><center><a href="#">Contact Stuff Here</a> <p class="footertext">Copyright 2014</p></center></p>
+            </div>
+          </div>
+      </div>
+  </body>
+</html>
+=======
           <h4><small>RECENT POSTS</small></h4>
           <hr>
           <h2>Officially Blogging</h2>
@@ -45,3 +128,4 @@
 </div>
 
 {% endblock %}
+>>>>>>> af530f7209ef1c257b3041faa02b9bb95f75491b

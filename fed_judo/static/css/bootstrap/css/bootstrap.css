@@ -634,7 +634,7 @@ a:focus {
 .container-fluid {
   padding-right: 20px;
   padding-left: 20px;
-  *zoom: 1;
+  *zoom: 5;
 }
 
 .container-fluid:before,
@@ -6165,3 +6165,4 @@ a.badge:focus {
 .affix {
   position: fixed;
 }
+  
