@@ -1,47 +1,11 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Cadastro de Usuário</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
-  </head>
-  <body>
+{% extends 'base.html' %}
 
-    <body>
-      <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index">Federação de Judô</a>
-          </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-              <li><a href="index">Página Inicial</a></li>
-              <li><a href="eventos">Eventos</a></li>
-              <li><a href="rankings">Rankings</a></li>
-              <li><a href="sobre">Sobre</a></li>
-            <li><a href="fale_conosco">Fale Conosco</a></li>
-            </ul>
+{% block title %}Cadastro de Usuário{% endblock %}
 
-          <ul class="nav navbar-nav navbar-right">
-                <li><a href="cadastro_usuario"><span class="glyphicon glyphicon-user"></span>Cadastre-se</a></li>
-                <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-              </ul>
-
-          </div>
-        </div>
-      </nav>
-
+{% block body %}
 
       <div class="container">
-        <h2>Cadastro de Usuários</h2>
+        <h1>Cadastro de Usuário</h1><br><br>
         {% if codigo == 0 %}
         <form class="form-horizontal" action="#" method="POST">{% csrf_token %}
           <div class="form-group">
@@ -50,6 +14,14 @@
               <input type="text" class="form-control" id="nome" placeholder="Insira seu nome" name="nome">
             </div>
           </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="cpf">CPF:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="cpf" placeholder="Insira seu CPF" name="cpf">
+            </div>
+          </div>
+
 
           <div class="form-group">
             <label class="control-label col-sm-2" for="pwd">Data de Nascimento:</label>
@@ -65,31 +37,26 @@
             </div>
           </div>
 
-          <div class="form-group">
-            <label class="control-label col-sm-2" for="cpf">CPF:</label>
-            <div class="col-sm-7">
-              <input type="text" class="form-control" id="cpf" placeholder="Insira seu CPF" name="cpf">
-            </div>
-          </div>
+          
 
 
           <div class="form-group">
             <label class="control-label col-sm-2" for="email">Email:</label>
             <div class="col-sm-7">
-              <input type="text" class="form-control" id="login" placeholder="Insira seu LOGIN" name="login">
+              <input type="text" class="form-control" id="login" placeholder="Insira seu email. Ex.: jose@email.com" name="login">
             </div>
           </div>
 
 
           <div class="form-group">
-            <label class="control-label col-sm-2" for="email">Senha:</label>
+            <label class="control-label col-sm-2" for="senha">Senha:</label>
             <div class="col-sm-7">
               <input type="password" class="form-control" id="senha" placeholder="Insira sua senha" name="senha">
             </div>
           </div>
 
           <div class="form-group">
-            <label class="control-label col-sm-2" for="email">Confirme sua senha:</label>
+            <label class="control-label col-sm-2" for="senha2">Confirme sua senha:</label>
             <div class="col-sm-7">
               <input type="password" class="form-control" id="confirmacao_senha" placeholder="Confirme sua senha" name="confirmacao_senha">
             </div>
@@ -98,8 +65,9 @@
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
               <div class="checkbox">
-                <label><input type="checkbox" name="remember"> Remember me</label>
+                <label><input type="checkbox" name="remember"> Remember-me</label>
               </div>
+              <br>
             </div>
           </div>
 
@@ -158,7 +126,7 @@
             </div>
           </div>
 
-          senhas diferentes!
+          Senhas diferentes!
           <div class="form-group">
             <label class="control-label col-sm-2" for="email">Senha:</label>
             <div class="col-sm-7">
@@ -183,17 +151,14 @@
 
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <button type="submit" class="btn btn-default">Enviar</button>
+               <br><br>
+              <button id="bt-env" type="submit" class="btn btn-default">Enviar</button>
             </div>
           </div>
         </form>
         {% endif %}
-        {{ codigo }}
+        <br><br>
       </div>
 
 
-
-
-
-  </body>
-</html>
+{% endblock %}

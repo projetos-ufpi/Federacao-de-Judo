@@ -1,58 +1,26 @@
-{% load staticfiles %}
-<!DOCTYPE html>
+{% extends 'base.html' %}
 
-<html>
-  <head>
-      <title>Login</title>
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-      <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
-  </head>
-<body>
+{% block title %}Login{% endblock %}
 
-  <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index">Federação de Judô</a>
-          </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="index">Página Inicial</a></li>
-              <li><a href="eventos">Eventos</a></li>
-              <li><a href="#">Academias</a></li>
-              <li><a href="rankings">Rankings</a></li>
-              <li><a href="sobre">Sobre</a></li>
-              <li><a href="fale_conosco">Fale Conosco</a></li>
-            </ul>
-
-          <ul class="nav navbar-nav navbar-right">
-                <li><a href="cadastro_usuario"><span class="glyphicon glyphicon-user"></span>Cadastre-se</a></li>
-                <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-              </ul>
-
-          </div>
-        </div>
-  </nav>
-
+{% block body %}
 
     <div class="container">
     <div class="row vertical-offset-100">
     	<div class="col-md-4 col-md-offset-4">
     		<div class="panel panel-default">
 			  	<div class="panel-heading">
-			    	<h3 class="panel-title">Por Favor, forneça seu Login e Senha</h3>
+			    	<h3 class="panel-title">Por Favor, forneça seu Email e Senha</h3>
 			 	</div>
 			  	<div class="panel-body">
 			    	<form accept-charset="UTF-8" role="form" method="post">
               {% csrf_token %}
             <fieldset>
   			    	  <div class="form-group">
+<<<<<<< HEAD
   			    		    <input class="form-control" placeholder="Usuário" name="username" type="text" id='username'>
+=======
+  			    		    <input class="form-control" placeholder="Email" name="username" type="text">
+>>>>>>> d08acdb43fcbf21201c957618a5782cbf1f7ac81
   			    		</div>
   			    		<div class="form-group">
   			    			<input class="form-control" placeholder="Senha" name="password" type="password" value="" id='password'>
@@ -72,6 +40,4 @@
 </div>
 
 
-
-  </body>
-</html>
+{% endblock %}

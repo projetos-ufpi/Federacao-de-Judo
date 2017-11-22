@@ -15,6 +15,33 @@ a{
 
 }
 
+
+#descricao-evento{ 
+	margin-top: 10px;
+	height: 130px; 
+	width: 650px;
+	resize: vertical;
+
+}
+
+
 .contato{
 	color: #d9d9d9;
+}
+
+
+.rodape{
+
+	margin-top: 160px;
+	position: relative;
+	bottom: 0;
+	left: 0;
+}
+
+#bt-env{
+	margin-left: 400px;
+}
+
+#limite-atletas{
+	margin-top: 10px;
 }
