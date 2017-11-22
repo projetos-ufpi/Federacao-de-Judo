@@ -54,6 +54,7 @@ class Academia(models.Model):
     endereco_academia = models.TextField()
     limite_atletas = models.IntegerField(null=True)
     telefone = models.IntegerField(null=True)
+    email = models.EmailField(max_length=75, null=True)
 
 
     def setTelefone(self, telefone=''):
@@ -61,6 +62,10 @@ class Academia(models.Model):
     def getTelefone(self):
         return self.telefone
 
+    def setEmail(self, email=''):
+        self.email = email
+    def getEmail(self):
+        return self.email
 
     def setIdAcademia(self, id_academia=''):
         self.id_academia = id_academia

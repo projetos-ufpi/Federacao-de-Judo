@@ -13,18 +13,19 @@ from django.contrib import auth
 from random import randint
 
 
+def academias(request):
+    #posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    academias = Academia.objects.all()#.order_by('published_date')
+    return render (request, 'academias.html', {'academias':academias})
+
+
+
 # Create your views here.
 def index(request):
     return render (request, 'index.html')
 
 
 
-def meu_select(self, sql="SELECT * FROM Usuario"):
-    r = self.db.cursor.execute(sql)
-    # gravando no bd
-    self.db.commit_db()
-    for usuario in r.fetchall():
-        print(usuario)
 
 def sobre(request):
     return render (request, 'sobre.html')
@@ -39,7 +40,9 @@ def sobre(request):
  #  	return render (request, 'cadastro_usuario.html',{})
 
 def eventos(request):
-    return render (request, 'eventos.html')
+    eventos = Evento.objects.all()
+    return render (request, 'eventos.html', {'eventos':eventos})
+    
 
 def rankings(request):
     return render (request, 'rankings.html')
@@ -178,6 +181,3 @@ def user_login(request):
 
 def interface_usuario(request):
     return render (request, 'interface_usuario.html')
-
-def academias(request):
-    return render (request, 'academias.html')
