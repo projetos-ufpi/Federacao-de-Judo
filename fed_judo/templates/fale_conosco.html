@@ -1,88 +1,71 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Fale Conosco</title>
+{% extends 'base.html' %}
 
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+{% block title %}Administração{% endblock %}
 
-  </head>
+{% block body %}
 
 
+<div class="container-fluid">
+      <div class="row content">
+        <div class="col-sm-8 sidenav">
+          <div class="container">
+            <h1>&emsp;&emsp;&emsp;Fale Conosco</h1><br><br>
+            {% if codigo == 0 %}
+            <form class="form-horizontal" action="#" method="POST">{% csrf_token %}
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="nome">Nome:</label>
+                <div class="col-sm-6">
+                  <input type="text" required="required" class="form-control" id="nome" placeholder="Insira seu nome. Ex.: José" name="nome">
+                </div>
+              </div>
 
-  <body>
-
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Fed Judô</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Página Inicial</a></li>
-            <li><a href="eventos">Eventos</a></li>
-            <li><a href="#">Academias</a></li>
-            <li><a href="rankings">Rankings</a></li>
-          </ul>
-
-        <ul class="nav navbar-nav navbar-right">
-              <li><a href="cadastro_usuario"><span class="glyphicon glyphicon-user"></span>Cadastre-se</a></li>
-              <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            </ul>
-
-        </div>
-      </div>
-    </nav>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="nome">E-mail:</label>
+                <div class="col-sm-6">
+                  <input type="email" required="required" class="form-control" id="email" placeholder="Insira seu e-mail para contato. Ex.: jose@email.com" name="email">
+                </div>
+              </div>
 
 
-    <div class="container">
-      <h2>Fale Conosco</h2>
-      {% if codigo == 0 %}
-      <form class="form-horizontal" action="#" method="POST">{% csrf_token %}
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="nome">Nome:</label>
-          <div class="col-sm-7">
-            <input type="text" class="form-control" id="nome" placeholder="Insira seu nome" name="nome">
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="nome">Mensagem:</label>
+                <div class="col-sm-6">
+                  <textarea type="text" required="required" class="form-control" id="mensagem" placeholder="Insira aqui sua mensagem para nós" name="mensagem"></textarea>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                  <div class="col-sm-offset-2 col-sm-10">
+                      <button type="submit" class="btn btn-default">Enviar</button>
+                  </div>
+              </div>
+             
+            </form>
+
+
           </div>
         </div>
 
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="nome">E-Mail:</label>
-          <div class="col-sm-7">
-            <input type="email" class="form-control" id="email" placeholder="Insira seu e-mail para contato" name="email">
-          </div>
+        <div class="col-sm-4"><br><br><br><br>
+          <h3>Outras formas de se comunicar </h3>
+          <h4>Endereço: </h4>
+              &emsp;&emsp;<b>Cidade: </b> Salvador <br>
+              &emsp;&emsp;<b>Bairro: </b> Alphaville I <br>
+              &emsp;&emsp;<b>Endereço: </b> Av.Luiz Viana Filho ,Centro Comercial Plaza Mall<br>
+          <h4>Telefone:</h4> 
+              &emsp;&emsp;(00) 00000-0000
+          <h4>Email:</h4> 
+              &emsp;&emsp;contato@fju.com.br
         </div>
-
-
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="nome">Mensagem:</label>
-          <div class="col-sm-7">
-            <input type="text" class="form-control" id="mensagem" placeholder="Insira aqui sua mensagem para nós" name="mensagem">
-          </div>
-        </div>
-
-
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-default">Enviar</button>
-            </div>
-        </div>
-
-      </form>
     </div>
+</div>
+
+<!--
     {% elif codigo == 1 %}
       Mensagem Enviada
       Obrigado pelo Feedback!
     {% endif %}
-    {{codigo}}
+    {{codigo}}-->
 
-  </body>
-</html>
+{% endblock %}

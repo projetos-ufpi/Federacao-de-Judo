@@ -7,6 +7,9 @@ from django.contrib.auth import authenticate, login
 from .forms import LoginForm
 from datetime import datetime
 
+from django.http import HttpResponse,HttpResponseRedirect
+from django.contrib import auth
+
 from random import randint
 
 
@@ -41,8 +44,25 @@ def eventos(request):
 def rankings(request):
     return render (request, 'rankings.html')
 
+
 def login(request):
-    return render(request, 'login.html')
+    if (request.method == 'POST'):
+        username = request.POST.get('username')#'teste'# aqui e pego o que está no formulario html e salvo na var de ususario
+        password = request.POST.get('senha')#'tomaz123'# aqui e pego o que está no formulario html e salvo na var de senha
+        print(username)#isso é so um print comum
+        user  = auth.authenticate(username=username, password=password)# essa função pronta do djanco para verificae e logar em uma conta
+        if user is not None:
+            auth.login(request, user)#aqui é sogado e construido a request com os dados de
+            return HttpResponseRedirect('/index/')#tela de feeds chamada se der certo logui
+            if request.user.is_authenticaded():
+                return HttpResponseRedirect('/index/')
+        else:
+            #c = {}
+            #c.update(csrf(request))
+            #c.update({'error_message': 'Senha ou Usuario Incorretos'})
+            return render(request, 'interface_usuario.html', {})# ususario e senhas invalidas arruamar a pagina para exibir erro
+    return render (request, 'login.html')
+
 
 def cadastro_eventos(request):
     eventos = Evento()
