@@ -22,18 +22,12 @@ def academias(request):
     return render (request, 'academias.html', {'academias':academias})
 
 
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-
-=======
-56
->>>>>>> 266fb7ca451a03d65eda446e8e797fe3a8be4cc7
->>>>>>> aa00b2c69e1198a3b59fa1a572efd96ca48a70d6
 # Create your views here.
 def index(request):
-    return render (request, 'index.html')
+    noticias = Noticia.objects.all()
+    eventos = Evento.objects.all()
+    return render (request, 'index.html', {'noticias':noticias, 'eventos':eventos})
 
 
 
@@ -51,16 +45,14 @@ def sobre(request):
  #  	return render (request, 'cadastro_usuario.html',{})
 
 def eventos(request):
-<<<<<<< HEAD
+
     eventos = Evento.objects.all()
     return render (request, 'eventos.html', {'eventos':eventos})
-    
-=======
+
     ns = Noticia.objects.all()
     eventos = Evento.objects.all()
     return render (request, 'eventos.html', {'eventos':eventos, 'ns':ns})
 
->>>>>>> 266fb7ca451a03d65eda446e8e797fe3a8be4cc7
 
 def rankings(request):
     academias = Academia.objects.all().order_by('pontuacao')
@@ -170,11 +162,8 @@ def cadastro_academias(request):#corrigir a atribuição de id para academia/ins
         academia.setEnderecoAcademia(request.POST.get('endereco_academia'))
         academia.setLimiteAtletasAcademia(request.POST.get('limite-atletas'))
         academia.setTelefone(request.POST.get('telefone_academia'))
-<<<<<<< HEAD
-=======
         academia.setPontuacao(0)
         academia.setEmail(request.POST.get('email_academia'))
->>>>>>> 266fb7ca451a03d65eda446e8e797fe3a8be4cc7
         academia.setIdAcademia(randint(0, 9999999))
         academia.save()
         codigo = 1

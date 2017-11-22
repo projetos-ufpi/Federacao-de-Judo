@@ -83,8 +83,7 @@ class Academia(models.Model):
     limite_atletas = models.IntegerField(null=True)
     telefone = models.IntegerField(null=True)
     email = models.EmailField(max_length=75, null=True)
-<<<<<<< HEAD
-=======
+
     pontuacao = models.PositiveIntegerField(null=True)
 
 
@@ -92,7 +91,7 @@ class Academia(models.Model):
         self.pontuacao = pontuacao
     def getPontuacao(self):
         return self.pontuacao
->>>>>>> 266fb7ca451a03d65eda446e8e797fe3a8be4cc7
+
 
 
     def setTelefone(self, telefone=''):

@@ -19,12 +19,6 @@ urlpatterns = [
     url(r'^cadastro_academias$', views.cadastro_academias, name='cadastro_academias.html'),
     url(r'^interface_usuario$', views.interface_usuario, name='interface_usuario.html'),
     url(r'^academias$', views.academias, name="academias.html"),
-<<<<<<< HEAD
-=======
     url(r'^informacoes_eventos$', views.informacoes_eventos, name='informacoes_eventos.html'),
-<<<<<<< HEAD
     url(r'^cadastro_noticias$', views.cadastro_noticias, name='cadastro_noticias.html'),
-=======
->>>>>>> 266fb7ca451a03d65eda446e8e797fe3a8be4cc7
->>>>>>> aa00b2c69e1198a3b59fa1a572efd96ca48a70d6
 ]
