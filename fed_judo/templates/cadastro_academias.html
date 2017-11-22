@@ -1,47 +1,8 @@
-{% load staticfiles %}
-<!DOCTYPE html>
+{% extends 'base.html' %}
 
-<html>
-  <head>
-      <title>Cadastro de Academias </title>
+{% block title %}Cadastro de Academia{% endblock %}
 
-
-          <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-          <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-          <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
-
-  </head>
-  <body>
-
-
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Fed Judô</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Página Inicial</a></li>
-            <li><a href="eventos">Eventos</a></li>
-            <li><a href="#">Academias</a></li>
-            <li><a href="rankings">Rankings</a></li>
-          </ul>
-
-        <ul class="nav navbar-nav navbar-right">
-              <li><a href="cadastro_usuario"><span class="glyphicon glyphicon-user"></span>Cadastre-se</a></li>
-              <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            </ul>
-
-        </div>
-      </div>
-    </nav>
-
-
+{% block body %}
 
         <div class="container">
           <h2>Cadastro de Academias</h2>
@@ -81,11 +42,6 @@
 
 
 
+{% endblock %}
 
 
-
-
-  </body>
-
-
-</html>

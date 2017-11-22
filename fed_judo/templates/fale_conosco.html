@@ -1,51 +1,9 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Fale Conosco</title>
+{% extends 'base.html' %}
 
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+{% block title %}Administração{% endblock %}
 
-  </head>
+{% block body %}
 
-
-
-  <body>
-
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index">Federação de Judô</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav">
-            <li><a href="index">Página Inicial</a></li>
-            <li><a href="eventos">Eventos</a></li>
-            <li><a href="#">Academias</a></li>
-            <li><a href="rankings">Rankings</a></li>
-            <li><a href="sobre">Sobre</a></li>
-            <li class="active"><a href="fale_conosco">Fale Conosco</a></li>
-          </ul>
-
-        <ul class="nav navbar-nav navbar-right">
-              <li><a href="cadastro_usuario"><span class="glyphicon glyphicon-user"></span>Cadastre-se</a></li>
-              <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            </ul>
-
-        </div>
-      </div>
-    </nav>
-
-
-    
 
 <div class="container-fluid">
       <div class="row content">
@@ -103,9 +61,6 @@
     </div>
 </div>
 
-        <footer class="container-fluid text-center">
-            <p>Footer Text</p>
-          </footer>
 <!--
     {% elif codigo == 1 %}
       Mensagem Enviada
@@ -113,5 +68,4 @@
     {% endif %}
     {{codigo}}-->
 
-  </body>
-</html>
+{% endblock %}
