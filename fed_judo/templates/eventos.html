@@ -19,7 +19,7 @@
               <hr>
 
               <h5> {{a.data_inicio}} a {{a.data_fim}}</h5>
-              <h3 class="text-info" > {{a.nome_evento}}</h3
+              <h3 class="text-info" ><!--<a href="informacoes_eventos" style="text-decoration: none; color: blue">--> {{a.nome_evento}} </h3
 
               <hr>
           {% endfor %}
@@ -27,5 +27,10 @@
       </div>
     </div>
 
-
+    <!--
+    {% for n in ns %}
+      <img width="333px" src="{{MEDIA_URL}}{{n.imagem.url}}">
+    {% endfor%}
+  -->
+  
 {% endblock %}

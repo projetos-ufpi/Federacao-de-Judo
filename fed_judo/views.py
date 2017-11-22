@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Usuario, Evento, FaleConosco, Academia
+from .models import Usuario, Evento, FaleConosco, Academia, Noticia
 
 from django.http import HttpResponse
 from django.contrib import messages
@@ -19,7 +19,7 @@ def academias(request):
     return render (request, 'academias.html', {'academias':academias})
 
 
-
+56
 # Create your views here.
 def index(request):
     return render (request, 'index.html')
@@ -40,12 +40,14 @@ def sobre(request):
  #  	return render (request, 'cadastro_usuario.html',{})
 
 def eventos(request):
+    ns = Noticia.objects.all()
     eventos = Evento.objects.all()
-    return render (request, 'eventos.html', {'eventos':eventos})
-    
+    return render (request, 'eventos.html', {'eventos':eventos, 'ns':ns})
+
 
 def rankings(request):
-    return render (request, 'rankings.html')
+    academias = Academia.objects.all().order_by('pontuacao')
+    return render (request, 'rankings.html', {'academias':academias})
 
 
 def login(request):
@@ -134,6 +136,8 @@ def cadastro_academias(request):#corrigir a atribuição de id para academia/ins
         academia.setEnderecoAcademia(request.POST.get('endereco_academia'))
         academia.setLimiteAtletasAcademia(request.POST.get('limite-atletas'))
         academia.setTelefone(request.POST.get('telefone_academia'))
+        academia.setPontuacao(0)
+        academia.setEmail(request.POST.get('email_academia'))
         academia.setIdAcademia(randint(0, 9999999))
         academia.save()
         codigo = 1
@@ -181,3 +185,7 @@ def user_login(request):
 
 def interface_usuario(request):
     return render (request, 'interface_usuario.html')
+
+
+def informacoes_eventos(request):
+    return render (request, 'informacoes_eventos.html')
