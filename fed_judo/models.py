@@ -4,6 +4,33 @@ from django.db import models
 
 
 # Create your models here.
+
+class Noticia(models.Model):
+    titulo = models.TextField()
+    corpo = models.TextField()
+    #data_lancamento_noticia = models.DataTimeField()
+    imagem = models.ImageField(upload_to='noticias')
+
+    def setTitulo(self, titulo=''):
+        self.titulo = titulo
+    def getTitulo(self):
+        return self.titulo
+
+    def setCorpo(self, corpo=''):
+        self.corpo = corpo
+    def getCorpo(self):
+        return self.corpo
+
+    def setDataLancamentoNoticia(self, data_lancamento_noticia=''):
+        self.data_lancamento_noticia = data_lancamento_noticia
+    def getDataLancamentoNoticia(self):
+        return self.data_lancamento_noticia
+
+
+    def __str__(self):
+        return self.titulo
+
+
 class Usuario(models.Model):
     cpf = models.IntegerField(unique=True,null=True)
     nome = models.TextField()
@@ -55,6 +82,16 @@ class Academia(models.Model):
     limite_atletas = models.IntegerField(null=True)
     telefone = models.IntegerField(null=True)
     email = models.EmailField(max_length=75, null=True)
+<<<<<<< HEAD
+=======
+    pontuacao = models.PositiveIntegerField(null=True)
+
+
+    def setPontuacao(self, pontuacao=''):
+        self.pontuacao = pontuacao
+    def getPontuacao(self):
+        return self.pontuacao
+>>>>>>> 266fb7ca451a03d65eda446e8e797fe3a8be4cc7
 
 
     def setTelefone(self, telefone=''):

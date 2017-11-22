@@ -24,31 +24,31 @@
 			      <th>Colocação</th>
 			      <th>Academia</th>
 			      <th>Pontuação</th>
-			      
+
 			    </tr>
 			  </thead>
 			  <tbody>
-			    <tr>
-			      <th scope="row">1</th>
-			      <td>Academia1</td>
-			      <td>800</td>
+
+          {% for ac in academias %}
+          <tr>
+
+  			      <th scope="row"></th>
+  			      <td>{{ac.nome_Academia}}</td>
+              <td>
+                {% if ac.pontuacao %}
+                  {{ac.pontuacao}}
+                {% else %}
+                  0
+                {% endif %}
+              </td>
+
 			    </tr>
-			    <tr>
-			      <th scope="row">2</th>
-			      <td>Academia2</td>
-			      <td>799</td>
-			    </tr>
-			    <tr>
-			      <th scope="row">3</th>
-			      <td>Academia3</td>
-			      <td>798</td>
-			    </tr>
-			    
-			    
+          {% endfor %}
+
 			  </tbody>
 			</table>
 
-          
+
 
         </div>
       </div>
