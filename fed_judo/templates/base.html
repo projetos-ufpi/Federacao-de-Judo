@@ -5,11 +5,13 @@
     <meta charset="utf-8">
     <title>Federação de Judô - {% block title %} {% endblock %}</title>
 
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-3.2.0/dist/css/bootstrap-theme.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-3.2.0/dist/css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
-
-
+    <script type="text/javascript" src="{{ STATIC_URL }}css/bootstrap-3.2.0/dist/js/bootstrap.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ 
   </head>
 
 
@@ -38,76 +40,86 @@
         <ul class="nav navbar-nav navbar-right">
               <li><a href="cadastro_usuario"><span class="glyphicon glyphicon-user"></span>Cadastre-se</a></li>
               <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            </ul>
+              </li>
+              <li><form class="form-inline pull-xs-right" style="margin-top: 8px;"> <input class="form-control" type="text"  placeholder="Pesquise">
+                </form>
+                <li><a href="#"> <span class="glyphicon glyphicon-search"></span></a>
+              </li>
+              
+        </ul>
 
         </div>
       </div>
     </nav>
-
-
-
  
     {% block body %}
 
     {% endblock %}
     
 
+
+
 <footer class="rodape">
   <div >
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse navbar-down">
           
       <div  class="collapse navbar-collapse"> 
         
           <div id="rodape" class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
             <br>
+
+
+
+            </div>
+            <div class="row">
+              <!--Informações-->
+              <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
+
+                <br>
+                <strong class="contato">
+                  <span class="glyphicon glyphicon-comment  "> </span> Informações
+                </strong>
+
+                <hr>
+                <a id="oque" href="sobre" class="contato"> <ins>O que é a Federação de Judô</ins></a>
+                <br><br>
+                <a id="cadsr" href="cadastro_usuario" class="contato"> <ins>Como se cadastrar neste site</ins></a>
+                <br><br>
+                <a id="cadr" href="cadastro_eventos" class="contato"> <ins>Como cadastrar seu evento neste site</ins></a>
+
+              </div>
+
+              <!--Ranking-->
+              <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
+                <br>
+                <strong class="contato">
+                  <span class="glyphicon glyphicon-list-alt"></span> Ranking
+                </strong>
+
+                <hr>
+                <a id="ranka" href="#" class="contato"><ins>Ranking de Academias</ins></a>
+                <br>
+                <br>
+                <a id="rankm" href="#" class="contato"><ins>Ranking Masculino</ins></a>
+                <br>
+                <br>
+                <a id="rankf" href="#" class="contato"><ins>Ranking Feminino</ins></a>
+                <br>
+                <br>
+              </div>
+            </div>
+
             <!--Contatos-->
-            <div id="contatos" class="col-sm-4 col-md-4 col-xs-12 col-lg-4">
-              <br>
-              <strong class="contato">
-                Contatos
-              </strong>
-              <hr>
-              <p class="contato">Envie um email para: <a class="contato"> <ins>contato@fju.com.br</ins></a></p>
-
-              <a id="faler" class="contato" href="fale_conosco"> <ins>Entre em contato conosco pelo site</ins></a>
-              <br><br>
-
-
-            </div>
-
-            <!--Informações-->
-            <div class="col-sm-4 col-md-4 col-xs-12 col-lg-4">
-
-              <br>
-              <strong class="contato">Informações</strong>
-
-              <hr>
-              <a id="oque" href="sobre" class="contato"> <ins>O que é a Federação de Judô</ins></a>
-              <br><br>
-              <a id="cadsr" href="cadastro_usuario" class="contato"> <ins>Como se cadastrar neste site</ins></a>
-              <br><br>
-              <a id="cadr" href="cadastro_eventos" class="contato"> <ins>Como cadastrar seu evento neste site</ins></a>
-
-            </div>
-
-            <!--Ranking-->
-            <div class="col-sm-4 col-md-4 col-xs-12 col-lg-4">
-              <br>
-              <strong class="contato">
-                Ranking
-              </strong>
-
-              <hr>
-              <a id="ranka" href="#" class="contato"><ins>Ranking de Academias</ins></a>
-              <br>
-              <br>
-              <a id="rankm" href="#" class="contato"><ins>Ranking Masculino</ins></a>
-              <br>
-              <br>
-              <a id="rankf" href="#" class="contato"><ins>Ranking Feminino</ins></a>
-              <br>
-              <br>
-            </div>
+            <div class="row">
+              <div id="contatos" class="col-sm-12 col-md-12 col-xs-12 col-lg-12" >
+                <br>
+                <strong class="contato">
+                  <span class="glyphicon glyphicon-earphone"> </span> Contatos
+                </strong>
+                <hr>
+                <p>dfiashdfhasdhfashdkfhaskdhf</p>
+                <br><br>
+              </div>
           </div>
         </div>
       </div>
