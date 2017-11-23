@@ -12,6 +12,8 @@ from django.contrib import auth
 
 from random import randint
 
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
 
 
 
@@ -96,14 +98,15 @@ def cadastro_eventos(request):
 def cadastro_noticias(request):
     noticia = Noticia()
     codigo = 0
-    if (request.method == 'POST'):
+    if (request.method == 'POST') and (request.FILES['imagem']):
         noticia.setTitulo(request.POST.get('titulo_noticia'))
         noticia.setCorpo(request.POST.get('corpo_noticia'))
         noticia.setImagem(request.POST.get('imagem_noticia'))
+
         noticia.setDataLancamentoNoticia(datetime.now())
         noticia.save()
         codigo = 1
-        return render (request, 'cadastro_noticias.html', {'codigo':codigo})
+        return render (request, 'cadastro_noticias.html', {'codigo':codigo, 'uploaded_file_url': uploaded_file_url})
 
     return render (request,'cadastro_noticias.html', {'codigo':codigo})
 
