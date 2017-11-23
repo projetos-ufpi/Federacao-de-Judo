@@ -89,6 +89,8 @@ def cadastro_eventos(request):
         eventos.setData_Inicio(request.POST.get('data_inicio'))
         eventos.setData_Fim(request.POST.get('data_fim'))
         eventos.setPremiacao(request.POST.get('premiacao'))
+        eventos.setLocalEvento(request.POST.get('local'))
+        eventos.setDescricao(request.POST.get('descricao_evento'))
         eventos.save()
         codigo = 1
         return render (request, 'cadastro_eventos.html', {'codigo':codigo})
@@ -98,7 +100,7 @@ def cadastro_eventos(request):
 def cadastro_noticias(request):
     noticia = Noticia()
     codigo = 0
-    if (request.method == 'POST') and (request.FILES['imagem']):
+    if (request.method == 'POST'):
         noticia.setTitulo(request.POST.get('titulo_noticia'))
         noticia.setCorpo(request.POST.get('corpo_noticia'))
         noticia.setImagem(request.POST.get('imagem_noticia'))
@@ -106,7 +108,7 @@ def cadastro_noticias(request):
         noticia.setDataLancamentoNoticia(datetime.now())
         noticia.save()
         codigo = 1
-        return render (request, 'cadastro_noticias.html', {'codigo':codigo, 'uploaded_file_url': uploaded_file_url})
+        return render (request, 'cadastro_noticias.html', {'codigo':codigo})
 
     return render (request,'cadastro_noticias.html', {'codigo':codigo})
 
@@ -140,7 +142,6 @@ def cadastro_usuario(request):
 		codigo = 2
 		return render(request,'cadastro_usuario.html',{'nome':usuario.getNome(),'endereco':usuario.getEndereco(),'telefone':usuario.getTelefone(),'data_nascimento':usuario.getDatadeNasciento(),'cpf':usuario.getCpf(),'username':usuario.getUsername(),'codigo':codigo})
 	return render(request,'cadastro_usuario.html',{'codigo':codigo})
-
 
 
 def fale_conosco(request):
@@ -206,7 +207,7 @@ def login_user(request):
         else:
             return render(request, 'login.html', {'error_message': 'Invalid login'})
     return render(request, 'login.html')
-    
+
 def user_login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)

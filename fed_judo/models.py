@@ -3,11 +3,69 @@ from django.db import models
 
 # Create your models here.
 
+
+
+class Usuario(models.Model):
+    cpf = models.IntegerField(unique=True,null=True)
+    nome = models.TextField()
+    idade = models.IntegerField(null=True)
+    tipo_usuario = models.CharField(max_length=30, null=True)
+    telefone = models.TextField()
+    endereco = models.TextField()
+    data_nascimento = models.DateTimeField(blank=True,null=True)
+    username = models.CharField(max_length=50,unique=True,null=True)
+    password = models.CharField(max_length=50,null=True)
+
+    def setTipoUsuario(self, tipo_usuario=''):
+        self.tipo_usuario = tipo_usuario
+    def getTipoUsuario(self):
+        return self.tipo_usuario
+
+
+    def getCpf(self):
+        return self.cpf
+    def setCpf(self, cpf=''):
+        self.cpf = cpf
+
+    def getNome(self):
+        return self.nome
+    def setNome(self, nome=''):
+        self.nome = nome
+
+    def setTelefone(self,telefone=''):
+        self.telefone = telefone
+    def getTelefone(self):
+        return self.telefone
+
+    def getEndereco(self):
+        return self.endereco
+    def setEndereco(self,endereco=''):
+        self.endereco=endereco
+
+    def getDatadeNasciento(self):
+        return self.data_nascimento
+    def setDatadeNascimento(self,data_nascimento=''):
+        self.data_nascimento=data_nascimento;
+
+    def getUsername(self):
+        return self.username
+    def setUsername(self,username=''):
+        self.username=username
+
+    def getPassword(self):
+        return self.password
+    def setPassword(self,password=''):
+        self.password = password
+
+    def __str__(self):
+        return self.nome
+
 class Noticia(models.Model):
     titulo = models.TextField()
     corpo = models.TextField()
     data_lancamento_noticia = models.DateTimeField(null=True)
     imagem = models.ImageField(upload_to='noticias')
+    usuario = models.ForeignKey(Usuario, default=1)
 
     def setImagem(self, imagem=''):
         self.imagem = imagem
@@ -30,50 +88,6 @@ class Noticia(models.Model):
 
     def __str__(self):
         return self.titulo
-
-
-class Usuario(models.Model):
-    cpf = models.IntegerField(unique=True,null=True)
-    nome = models.TextField()
-    idade = models.IntegerField(null=True)
-    telefone = models.TextField()
-    endereco = models.TextField()
-    data_nascimento = models.DateTimeField(blank=True,null=True)
-    username = models.CharField(max_length=50,unique=True,null=True)
-    password = models.CharField(max_length=50,null=True)
-
-    def getCpf(self):
-        return self.cpf
-    def setCpf(self, cpf=''):
-        self.nome = cpf
-    def getNome(self):
-        return self.nome
-    def setNome(self, nome=''):
-        self.nome = nome
-    def setTelefone(self,telefone=''):
-        self.telefone = telefone
-    def getTelefone(self):
-        return self.telefone
-    def getEndereco(self):
-        return self.endereco
-    def setEndereco(self,endereco=''):
-        self.endereco=endereco
-    def getDatadeNasciento(self):
-        return self.data_nascimento
-    def setDatadeNascimento(self,data_nascimento=''):
-        self.data_nascimento=data_nascimento;
-
-    def getUsername(self):
-        return self.username
-    def setUsername(self,username=''):
-        self.username=username
-    def getPassword(self):
-        return self.password
-    def setPassword(self,password=''):
-        self.password = password
-
-    def __str__(self):
-        return self.nome
 
 
 class Academia(models.Model):
@@ -148,6 +162,18 @@ class Evento(models.Model):
     data_inicio = models.DateTimeField(blank=True,null=True)
     data_fim = models.DateTimeField(blank=True,null=True)
     premiacao = models.TextField()
+    local = models.TextField(blank=True)
+    descricao = models.TextField(blank=True)
+
+    def setDescricao(self, descricao):
+        self.descricao = descricao
+    def getDescricao(self):
+        return self.descricao
+
+    def setLocalEvento(self, local=''):
+        self.local = local
+    def getLocalEvento(self):
+        return self.local
 
     def setNome_Evento(self, nome_evento=''):
         self.nome_evento = nome_evento

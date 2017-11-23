@@ -40,9 +40,9 @@
         <div class="form-group">
           <label class="control-label col-sm-2" for="pwd">Local:</label>
           <div class="col-sm-7">
-            <input type="text" class="form-control" placeholder="Insira o local do evento" id="data_fim" name="data_fim">
+            <input type="text" class="form-control" placeholder="Insira o local do evento" id="local" name="local">
           </div>
-        </div>        
+        </div>
 
         <div class="form-group">
           <label class="control-label col-sm-2" for="pwd">Premiação:</label>
@@ -54,7 +54,7 @@
         <div class="form-group">
           <label class="control-label col-sm-2" for="pwd">Descrição:</label>
           <div class="col-sm-7">
-            <textarea type="text" required="required" class="form-control" id="descricao-evento" placeholder="Insira uma descrição do evento, explicando por exemplo, quais as modalidades existentes." name="descricao-evento"></textarea>
+            <textarea type="text" required="required" class="form-control" id="descricao_evento" placeholder="Insira uma descrição do evento, explicando por exemplo, quais as modalidades existentes." name="descricao_evento"></textarea>
             <br>
           </div>
         </div>
@@ -67,12 +67,12 @@
       </form>
 </div>
 
-  
+
       {% elif codigo == 1 %}
         Efetuado com sucesso
       {% endif %}
       {{ codigo }}
-     
+
 
 
 {% endblock %}
