@@ -223,7 +223,18 @@ def user_login(request):
         form = LoginForm()
     return render(request, 'login.html', {'form': form})
 
-
+def login_alternativo(request):
+    if request.method == "POST":
+        usuario = Usuario.objects.all()
+        username = request.POST['username']
+        password = request.POST['password']
+        #user = authenticate(username=username, password=password)
+        for user in usuario:
+            if (user.getUsername() == username and user.getPassword() == password):
+                return render(request, 'interface_usuario.html',{'user':user})
+            else:
+                return render(request, 'login.html', {'error_message': 'Invalid login'})
+    return render(request, 'login.html')
 def interface_usuario(request):
     return render (request, 'interface_usuario.html')
 
