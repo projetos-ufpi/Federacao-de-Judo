@@ -15,12 +15,15 @@
 			  	<div class="panel-body">
 			    	<form accept-charset="UTF-8" role="form" method="post">
               {% csrf_token %}
+
+              {% if error_message %}
+                {{erro_message}}
+              {% else %}  
+                  Arrozzzzzzzzzzzzzzzzz
+              {% endif %}
             <fieldset>
   			    	  <div class="form-group">
-
-  			    		    <input class="form-control" placeholder="Email" name="username" type="text">
-
-
+  			    		    <input class="form-control" placeholder="Email" name="username" type="text" id="username">
   			    		</div>
   			    		<div class="form-group">
   			    			<input class="form-control" placeholder="Senha" name="password" type="password" value="" id='password'>

@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.contrib import auth
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -34,11 +35,12 @@ class Noticia(models.Model):
 
 class Usuario(models.Model):
     cpf = models.IntegerField(unique=True,null=True)
-    nome = models.TextField()
+    nome = models.CharField(max_length=50,null=True)
     idade = models.IntegerField(null=True)
     telefone = models.TextField()
     endereco = models.TextField()
     data_nascimento = models.DateTimeField(blank=True,null=True)
+    login = models.OneToOneField(User)
     username = models.CharField(max_length=50,unique=True,null=True)
     password = models.CharField(max_length=50,null=True)
 
@@ -62,7 +64,6 @@ class Usuario(models.Model):
         return self.data_nascimento
     def setDatadeNascimento(self,data_nascimento=''):
         self.data_nascimento=data_nascimento;
-
     def getUsername(self):
         return self.username
     def setUsername(self,username=''):
@@ -71,11 +72,10 @@ class Usuario(models.Model):
         return self.password
     def setPassword(self,password=''):
         self.password = password
-
     def __str__(self):
         return self.nome
-
-
+        #        login.username.setUsername(self.username)
+#User.profile = property(lambda u: Userprofile.objects.get_or_create(user=u)[0])
 class Academia(models.Model):
     id_academia = models.IntegerField()
     nome_Academia = models.TextField()
