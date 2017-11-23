@@ -14,7 +14,7 @@ class Usuario(models.Model):
     telefone = models.TextField()
     endereco = models.TextField()
     data_nascimento = models.DateTimeField(blank=True,null=True)
-    login = models.OneToOneField(User)
+    #login = models.OneToOneField(User)
     username = models.CharField(max_length=50,unique=True,null=True)
     password = models.CharField(max_length=50,null=True)
 
@@ -52,17 +52,12 @@ class Usuario(models.Model):
         return self.username
     def setUsername(self,username=''):
         self.username=username
-
     def getPassword(self):
         return self.password
     def setPassword(self,password=''):
         self.password = password
     def __str__(self):
         return self.nome
-<<<<<<< HEAD
-        #        login.username.setUsername(self.username)
-#User.profile = property(lambda u: Userprofile.objects.get_or_create(user=u)[0])
-=======
 
 class Noticia(models.Model):
     titulo = models.TextField()
@@ -94,7 +89,6 @@ class Noticia(models.Model):
         return self.titulo
 
 
->>>>>>> 59d36aa8293395a1164a19d478ce926c4b8e7273
 class Academia(models.Model):
     id_academia = models.IntegerField()
     nome_Academia = models.TextField()
