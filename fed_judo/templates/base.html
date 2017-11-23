@@ -33,18 +33,40 @@
             <li><a href="eventos">Eventos</a></li>
             <li><a href="academias">Academias</a></li>
             <li><a href="rankings">Rankings</a></li>
+            <li>
+              <a data-toggle="dropdown" href="#">Cadastros</a>
+                <ul class="dropdown-menu">
+                  <li><a href="cadastro_usuario">Cadastrar Usuário</a></li>
+                  <li><a href="cadastro_academias">Cadastrar Academia</a></li>
+                  <li><a href="cadastro_evento">Cadastrar Evento</a></li>
+                  <li><a href="cadastro_noticias">Cadastrar Notícia</a></li>
+
+                </ul>
+            </li>
             <li><a href="sobre">Sobre</a></li>
             <li><a href="fale_conosco">Fale Conosco</a></li>
+            
           </ul>
 
         <ul class="nav navbar-nav navbar-right">
-              <li><a href="cadastro_usuario"><span class="glyphicon glyphicon-user"></span>Cadastre-se</a></li>
-              <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+              <!--<li><a href="cadastro_usuario"><span class="glyphicon glyphicon-user"></span>Cadastre-se</a></li>-->
+              <li><a id="logindex" href="login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
               </li>
+              <!-- Isso só pode ser exibido caso o usuário esteja logado -->
+              <li>
+                <a data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-option-vertical"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="interface_usuario"> Meu Perfil</a></li>
+                    <li><a href="#"> Sair</a></li>
+                  </ul>
+              </li>
+
+              <!--
               <li><form class="form-inline pull-xs-right" style="margin-top: 8px;"> <input class="form-control" type="text"  placeholder="Pesquise">
                 </form>
                 <li><a href="#"> <span class="glyphicon glyphicon-search"></span></a>
               </li>
+              -->
 
         </ul>
 
@@ -81,47 +103,32 @@
                 </strong>
 
                 <hr>
-                <a id="oque" href="sobre" class="contato"> <ins style="text-decoration: none;">O que é a Federação de Judô</ins></a>
+                <a id="oque" href="sobre" class="contato"> <ins>O que é a Federação de Judô</ins></a>
                 <br><br>
-                <a id="cadsr" href="cadastro_usuario" class="contato"> <ins style="text-decoration: none;">Como se cadastrar neste site</ins></a>
+                <a id="cadsr" href="cadastro_usuario" class="contato"> <ins>Como se cadastrar neste site</ins></a>
                 <br><br>
-                <a id="cadr" href="cadastro_eventos" class="contato"> <ins style="text-decoration: none;">Como cadastrar seu evento neste site</ins></a>
+                <a id="cadr" href="cadastro_eventos" class="contato"> <ins>Como cadastrar seu evento neste site</ins></a>
 
               </div>
 
-              <!--Ranking-->
+              <!--Contato-->
               <div class="col-sm-6 col-md-6 col-xs-6 col-lg-6">
                 <br>
                 <strong class="contato">
-                  <span class="glyphicon glyphicon-list-alt"></span> Ranking
+                  <span class="glyphicon glyphicon-list-alt"></span> Contato
                 </strong>
 
                 <hr>
-                <a id="ranka" href="#" class="contato" style="text-decoration: none;"><ins style="text-decoration: none;">Ranking de Academias</ins></a>
+                <p class = "contato"> Envie-nos um email: contato@fju.com.br<a id="email" class="contato" style="text-decoration: none;"></p></a>
                 <br>
-                <br>
-                <a id="rankm" href="#" class="contato" style="text-decoration: none;"><ins style="text-decoration: none;">Ranking Masculino</ins></a>
-                <br>
-                <br>
-                <a id="rankf" href="#" class="contato" style="text-decoration: none;"><ins style="text-decoration: none;">Ranking Feminino</ins></a>
-                <br>
-                <br>
+                <a id="faler" href="fale_conosco" class="contato" style="text-decoration: none;"><ins>Fale conosco pelo site <br><br><br></ins></a>
+                
+                
               </div>
             </div>
 
-            <!--Contatos-->
-            <div class="row">
-              <div id="contatos" class="col-sm-12 col-md-12 col-xs-12 col-lg-12" >
-                <br>
-                <strong class="contato">
-                  <span class="glyphicon glyphicon-earphone"> </span> Contatos
-                </strong>
-                <hr>
-                <p>dfiashdfhasdhfashdkfhaskdhf</p>
-                <br><br>
-              </div>
-          </div>
         </div>
+        <br><br>
       </div>
 
 
