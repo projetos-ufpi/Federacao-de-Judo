@@ -60,14 +60,14 @@ def rankings(request):
 
 
 
-def alogin(request):
+def login(request):
     if (request.method == 'POST'):
-        username = request.POST.get('username')#'teste'# aqui e pego o que esta no formulario html e salvo na var de ususario
-        password = request.POST.get('senha')#'tomaz123'# aqui e pego o que esta no formulario html e salvo na var de senha
-        print(username)#isso e so um print comum
-        user  = auth.authenticate(username=username, password=password)# essa funcao pronta do djanco para verificae e logar em uma conta
+        username = request.POST.get('username')#'teste'# aqui e pego o que está no formulario html e salvo na var de ususario
+        password = request.POST.get('senha')#'tomaz123'# aqui e pego o que está no formulario html e salvo na var de senha
+        print(username)#isso é so um print comum
+        user  = auth.authenticate(username=username, password=password)# essa função pronta do djanco para verificae e logar em uma conta
         if user is not None:
-            auth.login(request, user)#aqui e sogado e construido a request com os dados de
+            auth.login(request, user)#aqui é sogado e construido a request com os dados de
             return HttpResponseRedirect('/index/')#tela de feeds chamada se der certo logui
             if request.user.is_authenticaded():
                 return HttpResponseRedirect('/index/')
@@ -154,7 +154,7 @@ def fale_conosco(request):
     return render(request, 'fale_conosco.html', {'codigo':codigo})
 
 
-def cadastro_academias(request):#corrigir a atribuicao de id para academia/inserir pesquisa para verificar se o valor ja esta salvo no banco
+def cadastro_academias(request):#corrigir a atribuição de id para academia/inserir pesquisa para verificar se o valor já está salvo no banco
     academia = Academia()
     codigo = 0
     if (request.method == 'POST'):
@@ -204,19 +204,6 @@ def login_user(request):
             return render(request, 'login.html', {'error_message': 'Invalid login'})
     return render(request, 'login.html')
     
-def login_alternativo(request):
-    if request.method == "POST":
-        usuario = Usuario.objects.all()
-        username = request.POST['username']
-        password = request.POST['password']
-        #user = authenticate(username=username, password=password)
-        for user in usuario:
-            if (user.getUsername() == username and user.getPassword() == password):
-                return render(request, 'interface_usuario.html',{'user':user})
-            else:
-                return render(request, 'login.html', {'error_message': 'Invalid login'})
-    return render(request, 'login.html')
-
 def user_login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
